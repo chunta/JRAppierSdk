@@ -12,8 +12,17 @@ Pod::Spec.new do |s|
   s.author       = { "Test" => "rex.chen@appier.com" }
   s.platform     = :ios, '9.0'
   s.source       = { :git => "https://github.com/chunta/JRAppierSdk.git", :tag => package['version']}
-  s.dependency 'JRADSdk'
-  s.dependency 'JRQGSdk'
+  #s.dependency 'JRADSdk'
+  #s.dependency 'JRQGSdk'
   s.frameworks   = 'AdSupport', 'CoreTelephony', 'SystemConfiguration', 'CoreLocation', 'ImageIO', 'MobileCoreServices'
   s.requires_arc = true
+
+  s.subspec 'JRADSdk' do |ads|
+    ads.dependency 'JRADSdk'
+  end
+
+  s.subspec 'JRQGSdk' do |qgs|
+    qgs.dependency 'JRQGSdk'
+  end 
+
 end
